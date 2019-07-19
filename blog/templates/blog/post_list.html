@@ -8,7 +8,19 @@
         <div>
             <h1>Blog do Trish</h1>
         </div>
-        <h1>Confira abaixo os posts mais recentes</h1>
+        <h1>Confira abaixo os posts mais recentes:</h1>
+
+            {% for post in posts %}
+
+                <div>
+                    <p>published: {{ post.published_date}}</p>
+                    <h2><a href="">{{ post.title }}</a></h2>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+
+            {% endfor %}
+
+
 
         <h2>Meu primeiro Site em Django</h2>
         <p>Este é meu primeiro site feito em Django</p>

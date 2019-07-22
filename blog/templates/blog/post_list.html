@@ -1,32 +1,28 @@
+{% load static %}
+
 <html>
 
     <head>
         <title>Blog do Trish</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
 
     <body>
         <div>
-            <h1>Blog do Trish</h1>
+            <h1><a href="/">Blog do Trish </a></h1>
         </div>
-        <h1>Confira abaixo os posts mais recentes:</h1>
 
             {% for post in posts %}
 
-                <div>
-                    <p>published: {{ post.published_date}}</p>
+                <div class="post">
+                    <p>publicado: {{ post.published_date}}</p>
                     <h2><a href="">{{ post.title }}</a></h2>
                     <p>{{ post.text|linebreaksbr }}</p>
                 </div>
 
             {% endfor %}
-
-
-
-        <h2>Meu primeiro Site em Django</h2>
-        <p>Este é meu primeiro site feito em Django</p>
-
-        <h2>Sobre a verdade</h2>
-        <p>Lorem Ipsum ........ </p>
 
     </body>
 

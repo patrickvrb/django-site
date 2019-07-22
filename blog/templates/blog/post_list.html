@@ -1,29 +1,19 @@
-{% load static %}
+{%extends 'blog/base.html' %}
 
-<html>
+{% block content %}
+    {% for post in posts %}
 
-    <head>
-        <title>Blog do Trish</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-    </head>
+        <div class="post">
+            <div class="date">
+                publicado: {{ post.published_date}}
+            </div>
 
-    <body>
-        <div>
-            <h1><a href="/">Blog do Trish </a></h1>
+
+                <h2> <a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a> </h2>
+
+            
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
 
-            {% for post in posts %}
-
-                <div class="post">
-                    <p>publicado: {{ post.published_date}}</p>
-                    <h2><a href="">{{ post.title }}</a></h2>
-                    <p>{{ post.text|linebreaksbr }}</p>
-                </div>
-
-            {% endfor %}
-
-    </body>
-
-</html>
+    {% endfor %}
+{%endblock%}
